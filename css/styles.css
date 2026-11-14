@@ -2472,3 +2472,46 @@ body.nav-lock { overflow: hidden; }
   color: #FFF3D0;
   flex: none;
 }
+
+/* flux14: stack fee rows on small screens so labels sit above values,
+   and long tokens wrap instead of clipping past the glass panel */
+@media (max-width: 719px) {
+  .fee-table-wrap {
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .fee-table,
+  .fee-table tbody,
+  .fee-table tr {
+    display: block;
+    width: 100%;
+    min-width: 0 !important;
+    max-width: 100%;
+  }
+  .fee-table th,
+  .fee-table td {
+    display: block;
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .fee-table th {
+    padding: 1rem 1.1rem 0.2rem;
+  }
+  .fee-table td {
+    padding: 0.15rem 1.1rem 1rem;
+  }
+}
+
+.fee-table td,
+.fee-table th,
+.legal-body,
+.legal-body a,
+.contact-card,
+.fine-print,
+.faq-a,
+.lede {
+  overflow-wrap: anywhere;
+}
