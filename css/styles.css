@@ -2515,3 +2515,22 @@ body.nav-lock { overflow: hidden; }
 .lede {
   overflow-wrap: anywhere;
 }
+
+
+/* ---------- flux14b: mobile menu LINE button, midnight on cream ---------- */
+.nav-mobile a.btn,
+.nav-mobile a.btn-invert {
+  color: #02070A;
+  -webkit-text-fill-color: #02070A;
+  background: var(--cream);
+  border-color: var(--cream);
+}
+.nav-mobile a.btn:hover,
+.nav-mobile a.btn:focus-visible,
+.nav-mobile a.btn-invert:hover,
+.nav-mobile a.btn-invert:focus-visible {
+  color: #02070A;
+  -webkit-text-fill-color: #02070A;
+  background: #fff;
+  border-color: #fff;
+}
