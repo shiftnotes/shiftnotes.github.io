@@ -2,11 +2,11 @@
    Midnight #02070A, Electric Blue #0297DE, Cantaloupe #FC734D */
 
 :root {
-  --bg: #0A2C4E;
-  --bg-soft: #0C3358;
-  --bg-ink: #08243F;
-  --bg-card: rgba(14, 24, 42, 0.58);
-  --bg-card-hover: rgba(14, 26, 44, 0.68);
+  --bg: #02070A;
+  --bg-soft: #07131F;
+  --bg-ink: #010508;
+  --bg-card: rgba(8, 18, 36, 0.48);
+  --bg-card-hover: rgba(12, 26, 48, 0.58);
   --ink: #F4F1EA;
   --ink-soft: rgba(236, 240, 246, 0.88);
   --ink-mute: rgba(198, 210, 222, 0.78);
@@ -484,9 +484,11 @@ button, input { font: inherit; color: inherit; }
 }
 .rule {
   display: block;
-  width: 3rem;
-  height: 1px;
+  width: 3.4rem;
+  height: 3px;
+  border-radius: 99px;
   background: linear-gradient(90deg, var(--blue), var(--orange));
+  box-shadow: 0 0 14px rgba(2, 151, 222, 0.45);
   margin: 1.6rem 0;
   border: 0;
 }
@@ -1112,7 +1114,7 @@ button, input { font: inherit; color: inherit; }
   overflow: hidden;
 }
 #guarantee::before {
-  content: "";
+  content: none;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -1257,7 +1259,7 @@ button, input { font: inherit; color: inherit; }
 /* ---------- Contact ---------- */
 #contact { overflow: hidden; }
 #contact::before {
-  content: "";
+  content: none;
   position: absolute;
   inset: auto 0 0 0;
   height: 70%;
@@ -1412,7 +1414,7 @@ button, input { font: inherit; color: inherit; }
   overflow: hidden;
 }
 .legal-hero::before {
-  content: "";
+  content: none;
   position: absolute;
   inset: 0;
   background:
@@ -1506,4 +1508,967 @@ body.nav-lock { overflow: hidden; }
 @media (max-width: 959px) {
   .header-trial { display: none; }
   /* when actions hidden under 960? we show hamburger; actions hidden already except we didn't show actions below 960 */
+}
+
+
+/* ============================================================
+   Page-wide atmosphere: every section shares the hero world
+   Midnight / Electric Blue / Cantaloupe, feathered beams,
+   frost cards without hairline borders
+   ============================================================ */
+
+.section-sky {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.section-glow,
+.section-rays,
+.section-noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.section-noise {
+  background-image: url("../assets/noise.png");
+  background-repeat: repeat;
+  opacity: 0.05;
+}
+.section-rays {
+  background: url("../assets/hero-rays.jpg") center / 100% 100% no-repeat;
+  opacity: 0.42;
+  -webkit-mask-image: radial-gradient(
+    ellipse 78% 92% at 50% 48%,
+    transparent 0%,
+    transparent 38%,
+    rgba(0, 0, 0, 0.16) 58%,
+    rgba(0, 0, 0, 0.7) 82%,
+    #000 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 78% 92% at 50% 48%,
+    transparent 0%,
+    transparent 38%,
+    rgba(0, 0, 0, 0.16) 58%,
+    rgba(0, 0, 0, 0.7) 82%,
+    #000 100%
+  );
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+/* Soft top/bottom fade so sections melt into each other */
+.section-sky::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    #02070A 0%,
+    rgba(2, 7, 10, 0) 14%,
+    rgba(2, 7, 10, 0) 86%,
+    #02070A 100%
+  );
+  pointer-events: none;
+}
+
+.atm-midn .section-glow {
+  background:
+    radial-gradient(ellipse 110% 70% at 50% 0%, rgba(2, 151, 222, 0.2), transparent 58%),
+    radial-gradient(ellipse 70% 50% at 80% 80%, rgba(2, 90, 150, 0.16), transparent 70%),
+    #02070A;
+}
+.atm-midn .section-rays { opacity: 0.32; }
+
+.atm-blue .section-glow {
+  background:
+    radial-gradient(ellipse 120% 90% at 50% 45%, rgba(2, 151, 222, 0.5) 0%, rgba(1, 72, 122, 0.42) 46%, rgba(2, 7, 10, 0.15) 74%, transparent 86%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(252, 115, 77, 0.14), transparent 70%),
+    #02070A;
+}
+.atm-blue .section-rays { opacity: 0.62; }
+
+.atm-warm .section-glow {
+  background:
+    radial-gradient(ellipse 90% 80% at 50% 100%, rgba(252, 115, 77, 0.42) 0%, rgba(252, 115, 77, 0.16) 38%, transparent 68%),
+    radial-gradient(ellipse 100% 70% at 50% 20%, rgba(2, 151, 222, 0.32), transparent 64%),
+    #02070A;
+}
+.atm-warm .section-rays { opacity: 0.48; }
+
+.section {
+  padding: clamp(5rem, 10vw, 8.75rem) 0;
+  overflow: hidden;
+}
+.section > .wrap,
+.legal-hero > .wrap,
+.site-footer > .wrap {
+  position: relative;
+  z-index: 2;
+}
+#about { padding-top: clamp(4.5rem, 8vw, 6.5rem); }
+
+@media (max-width: 719px) {
+  .section-rays {
+    -webkit-mask-image: radial-gradient(
+      ellipse 92% 88% at 50% 45%,
+      transparent 0%,
+      transparent 48%,
+      rgba(0, 0, 0, 0.18) 68%,
+      rgba(0, 0, 0, 0.75) 88%,
+      #000 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 92% 88% at 50% 45%,
+      transparent 0%,
+      transparent 48%,
+      rgba(0, 0, 0, 0.18) 68%,
+      rgba(0, 0, 0, 0.75) 88%,
+      #000 100%
+    );
+  }
+}
+
+/* Shared frost surface: fill + inner highlight + depth, no hairline border */
+.stat,
+.sell-item,
+.feature,
+.note-format,
+.trio-item,
+.plan,
+.steps li,
+.faq-list details,
+.contact-card,
+.guarantee-inner,
+.fee-table-wrap,
+.legal-body {
+  border: 0 !important;
+  background: rgba(8, 18, 36, 0.5);
+  backdrop-filter: saturate(1.15) blur(22px);
+  -webkit-backdrop-filter: saturate(1.15) blur(22px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 22px 50px rgba(0, 0, 0, 0.32);
+}
+.stat:hover,
+.sell-item:hover,
+.trio-item:hover,
+.plan:hover,
+.contact-card:hover,
+.steps li:hover,
+.faq-list details:hover {
+  background: rgba(10, 24, 46, 0.62);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 26px 58px rgba(0, 0, 0, 0.38);
+}
+
+.plan-featured {
+  background:
+    linear-gradient(180deg, rgba(2, 151, 222, 0.22), rgba(8, 16, 32, 0.55)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(180, 230, 255, 0.2),
+    0 28px 70px rgba(2, 70, 130, 0.38),
+    0 0 80px rgba(252, 115, 77, 0.12) !important;
+}
+
+/* Lists that used hairline dividers become spaced frost rows */
+.unit-list {
+  border-top: 0;
+}
+.unit-list li {
+  border-bottom: 0;
+  margin: 0 0 0.45rem;
+  padding: 0.95rem 1.1rem;
+  border-radius: 1rem;
+  background: rgba(8, 18, 36, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+.detail-list li {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  margin: 0 0 0.55rem;
+  padding: 1.05rem 1.15rem;
+  border-radius: 1rem;
+  background: rgba(8, 18, 36, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+/* Fee table as a single frost panel, no grid hairlines */
+.fee-table-wrap {
+  padding: 0.35rem 0.15rem 0.5rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.fee-table th,
+.fee-table td {
+  border-bottom: 0;
+  padding: 1.05rem 1.25rem;
+}
+.fee-table tr:nth-child(odd) th,
+.fee-table tr:nth-child(odd) td {
+  background: rgba(255, 255, 255, 0.025);
+}
+.fee-table tr:nth-child(even) th,
+.fee-table tr:nth-child(even) td {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.faq-list details {
+  margin-bottom: 0.8rem;
+  border-radius: 1.15rem;
+}
+.faq-list summary {
+  padding: 1.15rem 1.7rem 1.15rem 0.15rem;
+}
+.faq-list .faq-a {
+  padding: 0 0.15rem 1.25rem;
+}
+
+.guarantee-inner {
+  padding: 3.4rem 2rem;
+  border-radius: 1.85rem;
+  background: rgba(10, 18, 32, 0.42) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 28px 70px rgba(0, 0, 0, 0.35);
+}
+
+/* Footer: midnight, no top hairline, faint beams */
+.site-footer {
+  border-top: 0;
+  background: transparent;
+  padding: 5rem 0 2.5rem;
+  overflow: hidden;
+}
+.site-footer .section-glow {
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(2, 151, 222, 0.16), transparent 60%),
+    #02070A;
+}
+.site-footer .section-rays { opacity: 0.22; }
+.footer-bottom {
+  border-top: 0;
+  margin-top: 3.25rem;
+  padding-top: 0;
+}
+
+/* Legal pages: hero-style band + frost reading panel */
+.legal-hero {
+  border-bottom: 0;
+  min-height: 42vh;
+  padding: 9rem 0 5.5rem;
+  overflow: hidden;
+}
+.legal-hero .section-glow {
+  background:
+    radial-gradient(ellipse 110% 90% at 50% 40%, rgba(2, 151, 222, 0.42) 0%, rgba(1, 72, 122, 0.28) 48%, transparent 74%),
+    radial-gradient(ellipse 70% 55% at 50% 100%, rgba(252, 115, 77, 0.28), transparent 68%),
+    #02070A;
+}
+.legal-hero .section-rays { opacity: 0.55; }
+.legal-hero h1 {
+  font-size: clamp(2.25rem, 5.5vw, 3.6rem);
+  color: #fff;
+  text-shadow: 0 2px 18px rgba(4, 24, 48, 0.4);
+}
+.legal-body {
+  max-width: 46rem;
+  margin: -2.75rem auto 5.5rem;
+  padding: 2.75rem 2.1rem 3rem;
+  border-radius: 1.6rem;
+}
+.legal-nav {
+  border-top: 0;
+  margin-top: 2.75rem;
+  padding-top: 0.4rem;
+}
+
+/* Slightly more editorial section titles */
+.section-title {
+  font-size: clamp(1.95rem, 4.2vw, 2.95rem);
+}
+.section-head { margin-bottom: 3rem; }
+.sell-item h3,
+.feature h3,
+.note-format h3,
+.trio-item h3,
+.plan h3,
+.contact-card h3,
+.detail-list h3 {
+  font-weight: 600;
+}
+
+.stat {
+  padding: 1.55rem 1.15rem 1.35rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat:hover,
+  .sell-item:hover,
+  .trio-item:hover,
+  .plan:hover,
+  .contact-card:hover,
+  .steps li:hover,
+  .faq-list details:hover {
+    transform: none;
+  }
+}
+
+
+.section,
+.site-footer,
+.legal-hero { position: relative; }
+
+.plan-includes,
+.plan-featured .plan-includes {
+  border-top: 0 !important;
+  padding-top: 1.25rem;
+  margin-top: 0.4rem;
+  background-image: linear-gradient(90deg, rgba(2, 151, 222, 0.0), rgba(2, 151, 222, 0.35), rgba(252, 115, 77, 0.28), rgba(2, 151, 222, 0));
+  background-size: 100% 2px;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+.plan-includes li::before {
+  width: 0.45rem;
+  height: 3px;
+  border-radius: 99px;
+  background: var(--blue);
+  box-shadow: 0 0 8px rgba(2, 151, 222, 0.55);
+}
+.section-ink .rule {
+  background: linear-gradient(90deg, var(--blue), var(--orange));
+  box-shadow: 0 0 14px rgba(2, 151, 222, 0.45);
+}
+.nav-mobile a { border-bottom: 0; }
+
+
+/* ---------- Iteration: lift midn, soften seams, richer legal band ---------- */
+.section-sky::after {
+  background: linear-gradient(
+    180deg,
+    rgba(2, 7, 10, 0.35) 0%,
+    rgba(2, 7, 10, 0) 10%,
+    rgba(2, 7, 10, 0) 90%,
+    rgba(2, 7, 10, 0.35) 100%
+  );
+}
+
+#about .section-sky::after {
+  background: linear-gradient(
+    180deg,
+    rgba(2, 7, 10, 0) 0%,
+    rgba(2, 7, 10, 0) 88%,
+    rgba(2, 7, 10, 0.28) 100%
+  );
+}
+
+.atm-midn .section-glow {
+  background:
+    radial-gradient(ellipse 125% 85% at 50% 42%, rgba(2, 151, 222, 0.34) 0%, rgba(1, 60, 108, 0.26) 46%, transparent 72%),
+    radial-gradient(ellipse 80% 50% at 80% 100%, rgba(2, 90, 150, 0.22), transparent 70%),
+    #041018;
+}
+.atm-midn .section-rays { opacity: 0.5; }
+
+.atm-blue .section-glow {
+  background:
+    radial-gradient(ellipse 125% 95% at 50% 44%, rgba(2, 151, 222, 0.56) 0%, rgba(1, 72, 122, 0.44) 46%, rgba(2, 7, 10, 0.12) 74%, transparent 86%),
+    radial-gradient(ellipse 70% 42% at 50% 100%, rgba(252, 115, 77, 0.16), transparent 70%),
+    #03101C;
+}
+.atm-blue .section-rays { opacity: 0.66; }
+
+.atm-warm .section-glow {
+  background:
+    radial-gradient(ellipse 100% 85% at 50% 100%, rgba(252, 115, 77, 0.5) 0%, rgba(252, 115, 77, 0.2) 40%, transparent 68%),
+    radial-gradient(ellipse 110% 75% at 50% 18%, rgba(2, 151, 222, 0.36), transparent 64%),
+    #041018;
+}
+.atm-warm .section-rays { opacity: 0.55; }
+
+/* More luminous frost so the field shows through */
+.stat,
+.sell-item,
+.feature,
+.note-format,
+.trio-item,
+.plan,
+.steps li,
+.faq-list details,
+.contact-card,
+.guarantee-inner,
+.fee-table-wrap,
+.legal-body {
+  background: rgba(10, 28, 52, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(220, 240, 255, 0.16),
+    0 22px 50px rgba(0, 0, 0, 0.28);
+}
+.stat:hover,
+.sell-item:hover,
+.trio-item:hover,
+.plan:hover,
+.contact-card:hover,
+.steps li:hover,
+.faq-list details:hover {
+  background: rgba(14, 38, 70, 0.55);
+}
+.unit-list li,
+.detail-list li {
+  background: rgba(10, 28, 52, 0.4);
+  box-shadow: inset 0 1px 0 rgba(220, 240, 255, 0.12);
+}
+.plan-featured {
+  background:
+    linear-gradient(180deg, rgba(2, 151, 222, 0.32), rgba(8, 22, 44, 0.5)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(200, 236, 255, 0.26),
+    0 30px 74px rgba(2, 70, 130, 0.4),
+    0 0 90px rgba(252, 115, 77, 0.14) !important;
+}
+
+.site-footer .section-glow {
+  background:
+    radial-gradient(ellipse 100% 70% at 50% 0%, rgba(2, 151, 222, 0.22), transparent 62%),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(252, 115, 77, 0.1), transparent 70%),
+    #02070A;
+}
+.site-footer .section-rays { opacity: 0.32; }
+
+/* Legal: cinematic header + continuing field behind the reading panel */
+.legal-main { position: relative; }
+.legal-page-sky {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.legal-page-sky .section-glow {
+  background:
+    radial-gradient(ellipse 90% 40% at 50% 18%, rgba(2, 151, 222, 0.28), transparent 60%),
+    radial-gradient(ellipse 80% 30% at 50% 100%, rgba(2, 90, 150, 0.16), transparent 70%),
+    #02070A;
+}
+.legal-page-sky .section-rays { opacity: 0.28; }
+.legal-page-sky::after { background: none; }
+
+.legal-hero {
+  min-height: 54vh;
+  padding: 10.25rem 0 6.75rem;
+  position: relative;
+  z-index: 1;
+}
+.legal-hero .section-sky::after {
+  background: linear-gradient(
+    180deg,
+    rgba(2, 7, 10, 0) 0%,
+    rgba(2, 7, 10, 0) 58%,
+    rgba(2, 7, 10, 0.2) 82%,
+    rgba(2, 7, 10, 0.45) 100%
+  );
+}
+.legal-hero .section-glow {
+  background:
+    radial-gradient(ellipse 120% 95% at 50% 40%, rgba(2, 151, 222, 0.62) 0%, rgba(1, 72, 122, 0.4) 44%, transparent 74%),
+    radial-gradient(ellipse 80% 55% at 50% 100%, rgba(252, 115, 77, 0.4), transparent 66%),
+    #02070A;
+}
+.legal-hero .section-rays { opacity: 0.72; }
+.legal-hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+}
+.legal-body {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: -3.25rem auto 3.5rem;
+  padding: 2.9rem 2.25rem 3.1rem;
+  background: rgba(8, 22, 42, 0.62);
+  box-shadow:
+    inset 0 1px 0 rgba(220, 240, 255, 0.16),
+    0 28px 70px rgba(0, 0, 0, 0.38);
+}
+.legal-page .site-footer { position: relative; z-index: 1; }
+
+@media (max-width: 719px) {
+  .legal-body {
+    margin: -2rem 1rem 2.5rem;
+    padding: 2rem 1.2rem 2.4rem;
+  }
+}
+
+
+/* ---------- Iteration: legal field + footer continuity ---------- */
+.legal-page-sky .section-glow {
+  background:
+    radial-gradient(ellipse 100% 70% at 50% 20%, rgba(2, 151, 222, 0.3), transparent 62%),
+    radial-gradient(ellipse 90% 60% at 50% 60%, rgba(1, 80, 140, 0.22), transparent 70%),
+    radial-gradient(ellipse 80% 40% at 50% 100%, rgba(2, 90, 150, 0.2), transparent 70%),
+    #041018;
+}
+.legal-page-sky .section-rays { opacity: 0.42; }
+.legal-hero .section-sky::after {
+  background: linear-gradient(
+    180deg,
+    rgba(2, 7, 10, 0) 0%,
+    rgba(2, 7, 10, 0) 72%,
+    rgba(4, 16, 24, 0.22) 100%
+  );
+}
+.legal-body {
+  margin-bottom: 2.25rem;
+}
+.site-footer .section-glow {
+  background:
+    radial-gradient(ellipse 120% 90% at 50% 0%, rgba(2, 151, 222, 0.3), transparent 64%),
+    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(252, 115, 77, 0.16), transparent 70%),
+    #041018;
+}
+.site-footer .section-rays { opacity: 0.4; }
+.site-footer .section-sky::after {
+  background: linear-gradient(
+    180deg,
+    rgba(2, 7, 10, 0) 0 80%,
+    rgba(2, 7, 10, 0.45) 100%
+  );
+}
+
+
+/* ============================================================
+   Iteration: match the hero palette exactly
+   Same hero-glow.jpg + hero-rays.jpg, bright mid / thin deep
+   edge / cantaloupe foot. No large near-black fields.
+   ============================================================ */
+
+/* Crop into the luminous mid-to-foot of the hero field:
+   top is a thin deeper blue, center is electric #0297DE,
+   bottom carries the cantaloupe glow. */
+.section-glow,
+.atm-midn .section-glow,
+.atm-blue .section-glow,
+.atm-warm .section-glow,
+.legal-hero .section-glow,
+.legal-page-sky .section-glow,
+.site-footer .section-glow {
+  background: url("../assets/hero-glow.jpg") center 100% / 100% 150% no-repeat !important;
+}
+
+.section-rays,
+.atm-midn .section-rays,
+.atm-blue .section-rays,
+.atm-warm .section-rays,
+.legal-hero .section-rays,
+.legal-page-sky .section-rays,
+.site-footer .section-rays {
+  background: url("../assets/hero-rays.jpg") center 100% / 100% 150% no-repeat !important;
+  opacity: 1 !important;
+  -webkit-mask-image: radial-gradient(
+    ellipse 84% 94% at 50% 44%,
+    transparent 0%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.12) 56%,
+    rgba(0, 0, 0, 0.38) 70%,
+    rgba(0, 0, 0, 0.72) 84%,
+    #000 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 84% 94% at 50% 44%,
+    transparent 0%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.12) 56%,
+    rgba(0, 0, 0, 0.38) 70%,
+    rgba(0, 0, 0, 0.72) 84%,
+    #000 100%
+  );
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.section-noise {
+  opacity: 0.06;
+}
+
+/* Kill the black vignettes that were crushing every section */
+.section-sky::after,
+#about .section-sky::after,
+.legal-hero .section-sky::after,
+.site-footer .section-sky::after,
+.legal-page-sky::after {
+  background: none !important;
+}
+
+/* Long policy field: keep the bright mid of the hero across the page */
+.legal-page-sky .section-glow {
+  background: url("../assets/hero-glow.jpg") center 60% / 100% 220% no-repeat !important;
+}
+.legal-page-sky .section-rays {
+  background: url("../assets/hero-rays.jpg") center 60% / 100% 220% no-repeat !important;
+}
+
+/* Footer: same assets, a touch deeper (upper-mid of the field), not black */
+.site-footer .section-glow {
+  background: url("../assets/hero-glow.jpg") center 40% / 100% 160% no-repeat !important;
+}
+.site-footer .section-rays {
+  background: url("../assets/hero-rays.jpg") center 40% / 100% 160% no-repeat !important;
+  opacity: 0.85 !important;
+}
+
+@media (max-width: 719px) {
+  .section-rays,
+  .atm-midn .section-rays,
+  .atm-blue .section-rays,
+  .atm-warm .section-rays,
+  .legal-hero .section-rays,
+  .legal-page-sky .section-rays,
+  .site-footer .section-rays {
+  -webkit-mask-image: radial-gradient(
+    ellipse 90% 88% at 50% 40%,
+    transparent 0%,
+    transparent 48%,
+    rgba(0, 0, 0, 0.14) 64%,
+    rgba(0, 0, 0, 0.45) 78%,
+    rgba(0, 0, 0, 0.8) 90%,
+    #000 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 90% 88% at 50% 40%,
+    transparent 0%,
+    transparent 48%,
+    rgba(0, 0, 0, 0.14) 64%,
+    rgba(0, 0, 0, 0.45) 78%,
+    rgba(0, 0, 0, 0.8) 90%,
+    #000 100%
+  );
+  }
+}
+
+/* Readable white type on the brighter hero field */
+.section-title,
+.section-head .muted,
+.section .eyebrow,
+.plan h3,
+.plan-price,
+.guarantee-inner h2,
+.contact-copy h2,
+.sell-item h3,
+.feature h3,
+.note-format h3,
+.trio-item h3,
+.contact-card h3,
+.steps li,
+.faq-list summary {
+  text-shadow: 0 1px 14px rgba(4, 24, 48, 0.35);
+}
+.section .muted,
+.section-ink .muted,
+.section-ink .eyebrow {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Light frosted-white glass — glows on the blue field, not dark slabs */
+.stat,
+.sell-item,
+.feature,
+.note-format,
+.trio-item,
+.plan,
+.steps li,
+.faq-list details,
+.contact-card,
+.guarantee-inner,
+.fee-table-wrap {
+  border: 0 !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  backdrop-filter: saturate(1.2) blur(22px);
+  -webkit-backdrop-filter: saturate(1.2) blur(22px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    0 22px 50px rgba(0, 20, 50, 0.18) !important;
+}
+.stat:hover,
+.sell-item:hover,
+.trio-item:hover,
+.plan:hover,
+.contact-card:hover,
+.steps li:hover,
+.faq-list details:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 26px 58px rgba(0, 20, 50, 0.22) !important;
+}
+
+.plan-featured {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(2, 151, 222, 0.18)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    0 30px 74px rgba(2, 70, 130, 0.22),
+    0 0 80px rgba(252, 115, 77, 0.16) !important;
+}
+
+.unit-list li,
+.detail-list li {
+  background: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+.fee-table tr:nth-child(odd) th,
+.fee-table tr:nth-child(odd) td {
+  background: rgba(255, 255, 255, 0.06);
+}
+.fee-table tr:nth-child(even) th,
+.fee-table tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Policy reading panel: near-white frost, dark text for long reading */
+.legal-body {
+  background: rgba(247, 250, 253, 0.94) !important;
+  backdrop-filter: saturate(1.1) blur(22px);
+  -webkit-backdrop-filter: saturate(1.1) blur(22px);
+  color: #02070A;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 28px 70px rgba(0, 20, 50, 0.22) !important;
+}
+.legal-body h2,
+.legal-body h3,
+.legal-body h2:first-child {
+  color: #02070A !important;
+}
+.legal-body p,
+.legal-body li {
+  color: #1a2833 !important;
+}
+.legal-body a,
+.legal-nav a {
+  color: #015f99;
+}
+.legal-nav {
+  border-top: 0;
+}
+
+.legal-hero h1 {
+  color: #fff;
+  text-shadow: 0 2px 18px rgba(4, 24, 48, 0.4);
+}
+.legal-hero .legal-meta,
+.legal-hero .eyebrow {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 12px rgba(4, 24, 48, 0.35);
+}
+
+
+/* Close the midnight valley under the hero and on legal pages */
+.hero::after {
+  height: 10%;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 7, 10, 0) 0%,
+    rgba(4, 50, 100, 0.12) 55%,
+    rgba(8, 80, 140, 0.22) 100%
+  );
+}
+.legal-page {
+  background: #0c6aa8;
+}
+.legal-body {
+  margin-bottom: 1.25rem !important;
+}
+
+
+/* Smoother hero → about: no midnight valley, about opens already in electric blue */
+.hero::after {
+  height: 7%;
+  background: linear-gradient(180deg, rgba(2, 7, 10, 0) 0%, rgba(8, 90, 150, 0.1) 100%);
+}
+#about .section-glow,
+#about .section-rays {
+  background-size: 100% 165% !important;
+  background-position: center 100% !important;
+}
+
+
+/* ============================================================
+   flux12: seamless legal field + contrast on bright glass
+   ============================================================ */
+
+/* Policy pages: one continuous field. The header keeps the hero
+   glow; it fades into the same side-blue as the foot of hero-glow
+   so the body never hits a hard darker seam. */
+.legal-hero {
+  overflow: visible !important;
+}
+.legal-hero .section-sky {
+  bottom: -6rem;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 calc(100% - 6rem), transparent 100%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 calc(100% - 6rem), transparent 100%);
+}
+.legal-page-sky .section-glow {
+  background-color: #0c5d9e !important;
+  background-image: none !important;
+}
+.legal-page-sky .section-rays {
+  background-image: none !important;
+  opacity: 0 !important;
+}
+.legal-page-sky::after {
+  background: none !important;
+}
+.legal-page {
+  background: #0c5d9e;
+}
+
+/* Recommended badge: solid cantaloupe pill, white text */
+.plan-featured .plan-eyebrow {
+  display: inline-block;
+  width: fit-content;
+  align-self: flex-start;
+  color: #fff !important;
+  background: #FC734D;
+  padding: 0.28rem 0.75rem 0.26rem;
+  border-radius: 999px;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  font-size: 0.68rem;
+  box-shadow: 0 4px 16px rgba(252, 115, 77, 0.45);
+  text-shadow: none;
+}
+.plan-eyebrow,
+.plan .plan-eyebrow.muted {
+  color: rgba(255, 255, 255, 0.94);
+  font-weight: 500;
+}
+
+/* Visible dashes on bright plan cards */
+.plan-includes li::before,
+.plan-featured .plan-includes li::before {
+  width: 0.58rem;
+  height: 3px;
+  border-radius: 99px;
+  background: #fff !important;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.75);
+}
+
+.plan-price small {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Ghost buttons on bright glass: fill, not a faint outline */
+.plan .btn-ghost,
+.plan-featured .btn-ghost,
+#guarantee .btn-ghost {
+  background: rgba(255, 255, 255, 0.18) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Same orange-on-cyan problem on the guarantee kicker */
+.guarantee-kicker {
+  display: inline-block;
+  color: #fff !important;
+  background: #FC734D;
+  padding: 0.28rem 0.75rem 0.26rem;
+  border-radius: 999px;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(252, 115, 77, 0.45);
+}
+
+/* Feature indexes were electric blue on light glass */
+.feature-index,
+.trio-index {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+
+/* ============================================================
+   flux13: frosted policy panel + crown on recommended pill
+   ============================================================ */
+
+/* Behind the panel: stay in the hero's electric blue, easing from
+   the header-foot side color so there is no hard seam. */
+.legal-page {
+  background: #1290d4;
+}
+.legal-page-sky .section-glow {
+  background:
+    radial-gradient(ellipse 90% 50% at 50% 78%, rgba(80, 210, 245, 0.28), transparent 70%),
+    linear-gradient(
+      180deg,
+      #0c5d9e 0,
+      #0c5d9e 56vh,
+      #0e86c8 70vh,
+      #12a0de 100%
+    ) !important;
+}
+.legal-page-sky .section-rays {
+  background-image: none !important;
+  opacity: 0 !important;
+}
+
+/* Same frosted glass as the site cards, stronger blur for long text */
+.legal-body {
+  background: rgba(255, 255, 255, 0.16) !important;
+  backdrop-filter: saturate(1.25) blur(32px);
+  -webkit-backdrop-filter: saturate(1.25) blur(32px);
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    0 22px 50px rgba(0, 20, 50, 0.18) !important;
+}
+.legal-body h2,
+.legal-body h2:first-child {
+  color: #fff !important;
+  text-shadow: 0 1px 14px rgba(4, 24, 48, 0.4);
+}
+.legal-body h3 {
+  color: rgba(255, 255, 255, 0.96) !important;
+  text-shadow: 0 1px 12px rgba(4, 24, 48, 0.35);
+}
+.legal-body p,
+.legal-body li,
+.legal-body td,
+.legal-body th {
+  color: rgba(255, 255, 255, 0.92) !important;
+  text-shadow: 0 1px 10px rgba(4, 24, 48, 0.28);
+}
+.legal-body a,
+.legal-nav a {
+  color: #9BE7FF;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-shadow: 0 1px 10px rgba(4, 24, 48, 0.28);
+}
+.legal-body a:hover,
+.legal-nav a:hover {
+  color: #FC734D;
+}
+.legal-nav {
+  border-top: 0;
+}
+
+/* Crown inside the cantaloupe Recommended pill */
+.plan-featured .plan-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: fit-content;
+  align-self: flex-start;
+}
+.plan-crown {
+  display: block;
+  width: 1.15em;
+  height: 0.92em;
+  color: #FFF3D0;
+  flex: none;
 }
