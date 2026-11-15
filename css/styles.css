@@ -2534,3 +2534,146 @@ body.nav-lock { overflow: hidden; }
   background: #fff;
   border-color: #fff;
 }
+
+/* ---------- bubbles2: smaller glow bubbles on live stripe field + midnight gutters ---------- */
+
+.hero-sky::before,
+.section-sky::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: url("../assets/glow-bubbles.png") center / 100% 100% no-repeat;
+  animation: bubbleDrift 16s ease-in-out infinite alternate;
+}
+
+/* Match the live crop of hero-glow / hero-rays on each panel */
+.section-sky::before {
+  background-position: center 100%;
+  background-size: 100% 150%;
+}
+
+.site-footer .section-sky::before {
+  background-position: center 40%;
+  background-size: 100% 160%;
+}
+
+@keyframes bubbleDrift {
+  from { transform: translate3d(0, 6px, 0); }
+  to { transform: translate3d(0, -14px, 0); }
+}
+
+.bubble-live {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.wubble {
+  position: absolute;
+  width: var(--s, 1px);
+  height: var(--s, 1px);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 0 3px 1px rgba(170, 230, 255, 0.28);
+  animation: wubbleRise var(--t, 10s) ease-in-out var(--d, 0s) infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes wubbleRise {
+  0%, 100% { transform: translate3d(0, 4px, 0); opacity: 0.3; }
+  50% { transform: translate3d(0, -16px, 0); opacity: 0.85; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-sky::before,
+  .section-sky::before,
+  .wubble {
+    animation: none;
+  }
+}
+
+/* Midnight gutters between stacked section panels */
+html,
+body,
+.legal-page {
+  background: #02070A !important;
+}
+
+.hero,
+main > .section,
+.site-footer,
+.legal-hero {
+  margin-left: 14px;
+  margin-right: 14px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  border: 0 !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  background-color: transparent;
+}
+
+.hero,
+.legal-hero {
+  margin-top: 0;
+  border-radius: 0 0 22px 22px;
+}
+
+.legal-hero {
+  overflow: hidden !important;
+}
+
+main > .section,
+.site-footer {
+  border-radius: 22px;
+}
+
+.site-footer {
+  margin-bottom: 14px;
+  background: transparent !important;
+}
+
+/* Foot fade would fight the rounded card edge */
+.hero::after {
+  content: none !important;
+}
+
+/* Full-page legal sky would fill the gutters */
+.legal-page-sky {
+  display: none !important;
+}
+
+.legal-body {
+  margin-top: 0 !important;
+  margin-bottom: 14px !important;
+}
+
+@media (max-width: 719px) {
+  .hero,
+  main > .section,
+  .site-footer,
+  .legal-hero {
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+
+  .hero,
+  .legal-hero {
+    border-radius: 0 0 16px 16px;
+  }
+
+  main > .section,
+  .site-footer {
+    border-radius: 16px;
+  }
+
+  .site-footer,
+  .legal-body {
+    margin-bottom: 8px !important;
+  }
+}
