@@ -2535,28 +2535,23 @@ body.nav-lock { overflow: hidden; }
   border-color: #fff;
 }
 
-/* ---------- bubbles2: smaller glow bubbles on live stripe field + midnight gutters ---------- */
+/* ---------- bubbles3: fixed-size glow bubbles (never stretch with the panel) + midnight gutters ---------- */
 
 .hero-sky::before,
-.section-sky::before {
+.section-sky::before,
+.site-footer .section-sky::before,
+.legal-hero .section-sky::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background: url("../assets/glow-bubbles.png") center / 100% 100% no-repeat;
+  background-image: url("../assets/glow-bubbles.png");
+  background-repeat: repeat;
+  background-position: 0 0;
+  /* 2x tile (1600px) shown at 800 CSS px, so dots stay ~1-2px on every panel */
+  background-size: 800px 800px;
   animation: bubbleDrift 16s ease-in-out infinite alternate;
-}
-
-/* Match the live crop of hero-glow / hero-rays on each panel */
-.section-sky::before {
-  background-position: center 100%;
-  background-size: 100% 150%;
-}
-
-.site-footer .section-sky::before {
-  background-position: center 40%;
-  background-size: 100% 160%;
 }
 
 @keyframes bubbleDrift {
