@@ -1323,6 +1323,11 @@ button, input { font: inherit; color: inherit; }
 .contact-card::before,
 .contact-card::after { content: none; }
 .contact-card + .contact-card { margin-top: 0; }
+#contact .contact-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .contact-card h3 {
   margin: 0 0 0.55rem;
   font-family: var(--font-serif);
