@@ -296,3 +296,44 @@
 .article-page .article-note { max-width: 36rem; margin-left: auto; margin-right: auto; text-align: left; }
 .article-meta-grid { margin-inline: auto; }
 .article-page .card-more { align-self: flex-end; text-align: right; }
+
+/* v9：文字區塊收窄後置中，左右留白相等；行內靠左，段落兩端對齊讓右側不參差 */
+.article-hero .hero-sub,
+.article-hero .article-lead,
+.article-page .section-head .lede,
+.article-page .article-note {
+  width: fit-content;
+  max-width: min(36rem, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+.article-prose,
+.article-page .faq-list,
+.article-meta-grid {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.article-hero .hero-sub,
+.article-hero .article-lead,
+.article-page .section-head .lede,
+.article-page .article-note,
+.article-prose p,
+.article-prose li,
+.article-page .faq-a,
+.article-page .faq-a p,
+.article-page .sell-item p,
+.article-page .contact-card p,
+.article-page .steps li p,
+.article-page .overview-card li,
+.article-page .toc-card li {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-character;
+  text-wrap: wrap;
+}
+@media (max-width: 719px) {
+  .article-hero { padding-left: 1rem; padding-right: 1rem; }
+  .article-hero .hero-sub,
+  .article-hero .article-lead { max-width: calc(100% - 0.5rem); }
+}
