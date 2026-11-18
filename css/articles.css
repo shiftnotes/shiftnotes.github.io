@@ -1,0 +1,52 @@
+/* ShiftNotes articles: extends styles.css, light weight, no images */
+.article-page .legal-hero { min-height: 0; padding: 8.5rem 0 3.25rem; }
+.article-page .legal-hero h1 { font-size: clamp(1.75rem, 4.6vw, 2.75rem); }
+.article-lead { margin: 0.9rem 0 0; max-width: 46rem; color: var(--ink-soft); font-size: 1.02rem; line-height: 1.85; }
+.crumbs { margin: 0 0 1rem; font-size: 0.85rem; color: var(--ink-mute); }
+.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0; padding: 0; }
+.crumbs li + li::before { content: "›"; margin-right: 0.35rem; opacity: 0.7; }
+.crumbs a { color: var(--ink-soft); text-decoration: none; }
+.article-page .legal-body { max-width: 48rem; padding: 2.6rem clamp(1.2rem, 4vw, 2.6rem) 3.2rem; border-radius: var(--radius); margin-top: 2rem; margin-bottom: 4rem; line-height: 1.9; }
+.article-page .legal-body h2 { font-size: 1.45rem; margin-top: 2.8rem; scroll-margin-top: 6rem; }
+.article-page .legal-body h3 { color: #9fd9f7; }
+.summary-box, .note-box, .cta-box, .toc-box {
+  border-radius: var(--radius-sm);
+  padding: 1.15rem 1.35rem;
+  margin: 1.4rem 0;
+  background: rgba(2, 151, 222, 0.12);
+  box-shadow: inset 0 1px 0 rgba(220, 240, 255, 0.14);
+}
+.summary-box strong.box-title, .toc-box strong.box-title, .note-box strong.box-title { display: block; color: var(--cream); margin-bottom: 0.35rem; font-weight: 700; }
+.note-box { background: rgba(252, 115, 77, 0.12); }
+.toc-box ol { margin: 0; }
+.toc-box a { text-decoration: none; }
+.table-wrap { overflow-x: auto; margin: 1.2rem 0; border-radius: var(--radius-sm); background: rgba(6, 16, 30, 0.55); }
+.table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.93rem; min-width: 34rem; }
+.table-wrap th, .table-wrap td { text-align: left; padding: 0.7rem 0.9rem; vertical-align: top; color: var(--ink-soft); }
+.table-wrap thead th { background: rgba(2, 151, 222, 0.28); color: var(--cream); font-weight: 600; }
+.table-wrap tbody tr:nth-child(even) td { background: rgba(255, 255, 255, 0.04); }
+.table-wrap tfoot td { background: rgba(252, 115, 77, 0.16); color: var(--cream); font-weight: 600; }
+.table-note { font-size: 0.85rem; color: var(--ink-mute); margin-top: -0.4rem; }
+.article-page .faq-list details { border-radius: var(--radius-sm); padding: 0.9rem 1.15rem; margin: 0.7rem 0; }
+.article-page .faq-list summary { cursor: pointer; color: var(--cream); font-weight: 500; }
+.article-page .faq-list details p { margin: 0.6rem 0 0.2rem; }
+.cta-box { background: linear-gradient(135deg, rgba(2, 151, 222, 0.3), rgba(252, 115, 77, 0.2)); padding: 1.5rem 1.5rem 1.6rem; }
+.cta-box h2 { margin-top: 0 !important; }
+.cta-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+.cta-actions .btn { text-decoration: none !important; }
+.sources { font-size: 0.86rem; }
+.sources li { color: var(--ink-mute) !important; word-break: break-word; }
+.related-list { list-style: none; padding: 0 !important; display: grid; gap: 0.6rem; }
+.related-list a { display: block; padding: 0.8rem 1rem; border-radius: var(--radius-sm); background: rgba(10, 28, 52, 0.5); text-decoration: none !important; color: var(--cream); }
+.article-grid { list-style: none; padding: 0 !important; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.article-grid li { margin: 0 !important; }
+.article-card { display: block; height: 100%; padding: 1.25rem 1.3rem; border-radius: var(--radius-sm); background: rgba(10, 28, 52, 0.55); box-shadow: inset 0 1px 0 rgba(220, 240, 255, 0.14); text-decoration: none !important; }
+.article-card:hover { background: rgba(14, 38, 70, 0.7); }
+.article-card .card-kicker { display: block; font-size: 0.78rem; letter-spacing: 0.08em; color: var(--orange); margin-bottom: 0.4rem; }
+.article-card .card-title { display: block; color: var(--cream); font-family: var(--font-serif); font-size: 1.12rem; font-weight: 600; line-height: 1.5; }
+.article-card .card-desc { display: block; margin-top: 0.5rem; color: var(--ink-mute); font-size: 0.9rem; line-height: 1.75; }
+.author-box { margin-top: 2.2rem; font-size: 0.9rem; color: var(--ink-mute); }
+@media (max-width: 640px) {
+  .article-page .legal-hero { padding: 7rem 0 2rem; }
+  .article-page .legal-body { margin-top: 1.2rem; }
+}
