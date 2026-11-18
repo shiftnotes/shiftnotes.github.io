@@ -2672,3 +2672,34 @@ main > .section,
     margin-bottom: 8px !important;
   }
 }
+
+
+/* price1: guarantee-class badge under the featured plan price */
+.plan-price-row {
+  margin: 0 0 0.4rem;
+}
+.plan-price-row .plan-price {
+  margin: 0;
+}
+.plan-guarantee-badge {
+  display: inline-block;
+  margin: 0.65rem 0 0;
+  padding: 0.34em 0.75em 0.32em;
+  border-radius: 999px;
+  background: #FC734D;
+  color: #02070A;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  box-shadow: 0 4px 16px rgba(252, 115, 77, 0.45);
+}
+
+/* price2: payment hint under each buy button */
+.plan-buy-hint {
+  margin: 0.4rem 0 0.55rem;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--ink-mute);
+}
