@@ -44,3 +44,13 @@
     });
   }
 })();
+
+(function () {
+  var year = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Taipei",
+    year: "numeric"
+  }).format(new Date());
+  document.querySelectorAll(".js-year").forEach(function (el) {
+    el.textContent = year;
+  });
+})();

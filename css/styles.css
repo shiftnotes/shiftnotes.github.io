@@ -669,8 +669,26 @@ button, input { font: inherit; color: inherit; }
   width: 0.4rem;
   height: 0.4rem;
   border-radius: 50%;
-  background: var(--orange);
+  background: #FC734D;
   box-shadow: 0 0 10px rgba(252, 115, 77, 0.7);
+  animation: hero-kicker-pulse 2s ease-in-out infinite;
+}
+@keyframes hero-kicker-pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 6px rgba(252, 115, 77, 0.45);
+  }
+  50% {
+    opacity: 0.35;
+    box-shadow: 0 0 16px 4px rgba(252, 115, 77, 0.9);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-kicker::before {
+    animation: none !important;
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(252, 115, 77, 0.7);
+  }
 }
 
 .hero h1 {
