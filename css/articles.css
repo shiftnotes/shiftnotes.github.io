@@ -253,3 +253,46 @@
 .article-page .card-more { align-self: flex-end; text-align: right; }
 .article-meta-grid { grid-template-columns: 1fr !important; max-width: 52rem; }
 .article-meta-grid .contact-card p + p { margin-top: 0.75rem; }
+
+/* v8：比照首頁「置中向左對齊」：標題置中，內文區塊置中、區塊內文字靠左 */
+.article-hero { align-items: center; text-align: center; padding-left: 1.25rem; padding-right: 1.25rem; }
+.article-hero-inner {
+  width: min(52rem, 100%);
+  max-width: none;
+  padding: 0;
+  align-items: center;
+  text-align: center;
+}
+.article-hero-inner > * { max-width: none; }
+.article-hero h1 { text-align: center; text-wrap: balance; }
+.crumbs ol { justify-content: center; }
+.article-hero .hero-sub,
+.article-hero .article-lead {
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  text-wrap: pretty;
+}
+.article-hero .hero-actions { justify-content: center; }
+
+.article-page .section-head {
+  text-align: center;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.article-page .section-head .section-title { text-wrap: balance; }
+.article-page .section-head .lede {
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+.article-prose { margin-inline: auto; text-align: left; }
+.article-page .faq-list { margin-inline: auto; }
+.section-actions,
+.article-page .section > .wrap > .hero-actions { justify-content: center; }
+.article-page .article-note { max-width: 36rem; margin-left: auto; margin-right: auto; text-align: left; }
+.article-meta-grid { margin-inline: auto; }
+.article-page .card-more { align-self: flex-end; text-align: right; }
