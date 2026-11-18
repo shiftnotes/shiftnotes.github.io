@@ -529,7 +529,15 @@ button, input { font: inherit; color: inherit; }
 .hero-glow {
   position: absolute;
   inset: 0;
-  background: url("../assets/hero-glow.jpg") center / 100% 100% no-repeat;
+  background: url("../assets/hero-glow-optimized.jpg") center / 100% 100% no-repeat;
+  background-image: -webkit-image-set(
+    url("../assets/hero-glow.webp") type("image/webp"),
+    url("../assets/hero-glow-optimized.jpg") type("image/jpeg")
+  );
+  background-image: image-set(
+    url("../assets/hero-glow.webp") type("image/webp"),
+    url("../assets/hero-glow-optimized.jpg") type("image/jpeg")
+  );
 }
 .hero-stars {
   position: absolute;
@@ -561,7 +569,15 @@ button, input { font: inherit; color: inherit; }
 .hero-rays {
   position: absolute;
   inset: 0;
-  background: url("../assets/hero-rays.jpg") center / 100% 100% no-repeat;
+  background: url("../assets/hero-rays-optimized.jpg") center / 100% 100% no-repeat;
+  background-image: -webkit-image-set(
+    url("../assets/hero-rays.webp") type("image/webp"),
+    url("../assets/hero-rays-optimized.jpg") type("image/jpeg")
+  );
+  background-image: image-set(
+    url("../assets/hero-rays.webp") type("image/webp"),
+    url("../assets/hero-rays-optimized.jpg") type("image/jpeg")
+  );
   mix-blend-mode: normal;
   opacity: 1;
   pointer-events: none;
@@ -589,7 +605,27 @@ button, input { font: inherit; color: inherit; }
   mask-repeat: no-repeat;
 }
 @media (max-width: 719px) {
+  .hero-glow {
+    background: url("../assets/hero-glow-1080-optimized.jpg") center / 100% 100% no-repeat;
+    background-image: -webkit-image-set(
+      url("../assets/hero-glow-1080.webp") type("image/webp"),
+      url("../assets/hero-glow-1080-optimized.jpg") type("image/jpeg")
+    );
+    background-image: image-set(
+      url("../assets/hero-glow-1080.webp") type("image/webp"),
+      url("../assets/hero-glow-1080-optimized.jpg") type("image/jpeg")
+    );
+  }
   .hero-rays {
+    background: url("../assets/hero-rays-1080-optimized.jpg") center / 100% 100% no-repeat;
+    background-image: -webkit-image-set(
+      url("../assets/hero-rays-1080.webp") type("image/webp"),
+      url("../assets/hero-rays-1080-optimized.jpg") type("image/jpeg")
+    );
+    background-image: image-set(
+      url("../assets/hero-rays-1080.webp") type("image/webp"),
+      url("../assets/hero-rays-1080-optimized.jpg") type("image/jpeg")
+    );
     -webkit-mask-image: radial-gradient(
       ellipse 90% 88% at 50% 40%,
       transparent 0%,
@@ -1537,7 +1573,15 @@ body.nav-lock { overflow: hidden; }
   opacity: 0.05;
 }
 .section-rays {
-  background: url("../assets/hero-rays.jpg") center / 100% 100% no-repeat;
+  background: url("../assets/hero-rays-optimized.jpg") center / 100% 100% no-repeat;
+  background-image: -webkit-image-set(
+    url("../assets/hero-rays.webp") type("image/webp"),
+    url("../assets/hero-rays-optimized.jpg") type("image/jpeg")
+  );
+  background-image: image-set(
+    url("../assets/hero-rays.webp") type("image/webp"),
+    url("../assets/hero-rays-optimized.jpg") type("image/jpeg")
+  );
   opacity: 0.42;
   -webkit-mask-image: radial-gradient(
     ellipse 78% 92% at 50% 48%,
@@ -2040,7 +2084,7 @@ body.nav-lock { overflow: hidden; }
 
 /* ============================================================
    Iteration: match the hero palette exactly
-   Same hero-glow.jpg + hero-rays.jpg, bright mid / thin deep
+   Same hero-glow + hero-rays (WebP with JPG fallback), bright mid / thin deep
    edge / cantaloupe foot. No large near-black fields.
    ============================================================ */
 
@@ -2054,7 +2098,15 @@ body.nav-lock { overflow: hidden; }
 .legal-hero .section-glow,
 .legal-page-sky .section-glow,
 .site-footer .section-glow {
-  background: url("../assets/hero-glow.jpg") center 100% / 100% 150% no-repeat !important;
+  background: url("../assets/hero-glow-optimized.jpg") center 100% / 100% 150% no-repeat !important;
+  background-image: -webkit-image-set(
+    url("../assets/hero-glow.webp") type("image/webp"),
+    url("../assets/hero-glow-optimized.jpg") type("image/jpeg")
+  ) !important;
+  background-image: image-set(
+    url("../assets/hero-glow.webp") type("image/webp"),
+    url("../assets/hero-glow-optimized.jpg") type("image/jpeg")
+  ) !important;
 }
 
 .section-rays,
@@ -2064,7 +2116,15 @@ body.nav-lock { overflow: hidden; }
 .legal-hero .section-rays,
 .legal-page-sky .section-rays,
 .site-footer .section-rays {
-  background: url("../assets/hero-rays.jpg") center 100% / 100% 150% no-repeat !important;
+  background: url("../assets/hero-rays-optimized.jpg") center 100% / 100% 150% no-repeat !important;
+  background-image: -webkit-image-set(
+    url("../assets/hero-rays.webp") type("image/webp"),
+    url("../assets/hero-rays-optimized.jpg") type("image/jpeg")
+  ) !important;
+  background-image: image-set(
+    url("../assets/hero-rays.webp") type("image/webp"),
+    url("../assets/hero-rays-optimized.jpg") type("image/jpeg")
+  ) !important;
   opacity: 1 !important;
   -webkit-mask-image: radial-gradient(
     ellipse 84% 94% at 50% 44%,
@@ -2105,22 +2165,132 @@ body.nav-lock { overflow: hidden; }
 
 /* Long policy field: keep the bright mid of the hero across the page */
 .legal-page-sky .section-glow {
-  background: url("../assets/hero-glow.jpg") center 60% / 100% 220% no-repeat !important;
+  background: url("../assets/hero-glow-optimized.jpg") center 60% / 100% 220% no-repeat !important;
+  background-image: -webkit-image-set(
+    url("../assets/hero-glow.webp") type("image/webp"),
+    url("../assets/hero-glow-optimized.jpg") type("image/jpeg")
+  ) !important;
+  background-image: image-set(
+    url("../assets/hero-glow.webp") type("image/webp"),
+    url("../assets/hero-glow-optimized.jpg") type("image/jpeg")
+  ) !important;
 }
 .legal-page-sky .section-rays {
-  background: url("../assets/hero-rays.jpg") center 60% / 100% 220% no-repeat !important;
+  background: url("../assets/hero-rays-optimized.jpg") center 60% / 100% 220% no-repeat !important;
+  background-image: -webkit-image-set(
+    url("../assets/hero-rays.webp") type("image/webp"),
+    url("../assets/hero-rays-optimized.jpg") type("image/jpeg")
+  ) !important;
+  background-image: image-set(
+    url("../assets/hero-rays.webp") type("image/webp"),
+    url("../assets/hero-rays-optimized.jpg") type("image/jpeg")
+  ) !important;
 }
 
 /* Footer: same assets, a touch deeper (upper-mid of the field), not black */
 .site-footer .section-glow {
-  background: url("../assets/hero-glow.jpg") center 40% / 100% 160% no-repeat !important;
+  background: url("../assets/hero-glow-optimized.jpg") center 40% / 100% 160% no-repeat !important;
+  background-image: -webkit-image-set(
+    url("../assets/hero-glow.webp") type("image/webp"),
+    url("../assets/hero-glow-optimized.jpg") type("image/jpeg")
+  ) !important;
+  background-image: image-set(
+    url("../assets/hero-glow.webp") type("image/webp"),
+    url("../assets/hero-glow-optimized.jpg") type("image/jpeg")
+  ) !important;
 }
 .site-footer .section-rays {
-  background: url("../assets/hero-rays.jpg") center 40% / 100% 160% no-repeat !important;
+  background: url("../assets/hero-rays-optimized.jpg") center 40% / 100% 160% no-repeat !important;
+  background-image: -webkit-image-set(
+    url("../assets/hero-rays.webp") type("image/webp"),
+    url("../assets/hero-rays-optimized.jpg") type("image/jpeg")
+  ) !important;
+  background-image: image-set(
+    url("../assets/hero-rays.webp") type("image/webp"),
+    url("../assets/hero-rays-optimized.jpg") type("image/jpeg")
+  ) !important;
   opacity: 0.85 !important;
 }
 
 @media (max-width: 719px) {
+  .section-glow,
+  .atm-midn .section-glow,
+  .atm-blue .section-glow,
+  .atm-warm .section-glow,
+  .legal-hero .section-glow,
+  .legal-page-sky .section-glow,
+  .site-footer .section-glow {
+    background: url("../assets/hero-glow-1080-optimized.jpg") center 100% / 100% 150% no-repeat !important;
+    background-image: -webkit-image-set(
+      url("../assets/hero-glow-1080.webp") type("image/webp"),
+      url("../assets/hero-glow-1080-optimized.jpg") type("image/jpeg")
+    ) !important;
+    background-image: image-set(
+      url("../assets/hero-glow-1080.webp") type("image/webp"),
+      url("../assets/hero-glow-1080-optimized.jpg") type("image/jpeg")
+    ) !important;
+  }
+  .legal-page-sky .section-glow {
+    background: url("../assets/hero-glow-1080-optimized.jpg") center 60% / 100% 220% no-repeat !important;
+    background-image: -webkit-image-set(
+      url("../assets/hero-glow-1080.webp") type("image/webp"),
+      url("../assets/hero-glow-1080-optimized.jpg") type("image/jpeg")
+    ) !important;
+    background-image: image-set(
+      url("../assets/hero-glow-1080.webp") type("image/webp"),
+      url("../assets/hero-glow-1080-optimized.jpg") type("image/jpeg")
+    ) !important;
+  }
+  .site-footer .section-glow {
+    background: url("../assets/hero-glow-1080-optimized.jpg") center 40% / 100% 160% no-repeat !important;
+    background-image: -webkit-image-set(
+      url("../assets/hero-glow-1080.webp") type("image/webp"),
+      url("../assets/hero-glow-1080-optimized.jpg") type("image/jpeg")
+    ) !important;
+    background-image: image-set(
+      url("../assets/hero-glow-1080.webp") type("image/webp"),
+      url("../assets/hero-glow-1080-optimized.jpg") type("image/jpeg")
+    ) !important;
+  }
+  .section-rays,
+  .atm-midn .section-rays,
+  .atm-blue .section-rays,
+  .atm-warm .section-rays,
+  .legal-hero .section-rays,
+  .legal-page-sky .section-rays,
+  .site-footer .section-rays {
+    background: url("../assets/hero-rays-1080-optimized.jpg") center 100% / 100% 150% no-repeat !important;
+    background-image: -webkit-image-set(
+      url("../assets/hero-rays-1080.webp") type("image/webp"),
+      url("../assets/hero-rays-1080-optimized.jpg") type("image/jpeg")
+    ) !important;
+    background-image: image-set(
+      url("../assets/hero-rays-1080.webp") type("image/webp"),
+      url("../assets/hero-rays-1080-optimized.jpg") type("image/jpeg")
+    ) !important;
+  }
+  .legal-page-sky .section-rays {
+    background: url("../assets/hero-rays-1080-optimized.jpg") center 60% / 100% 220% no-repeat !important;
+    background-image: -webkit-image-set(
+      url("../assets/hero-rays-1080.webp") type("image/webp"),
+      url("../assets/hero-rays-1080-optimized.jpg") type("image/jpeg")
+    ) !important;
+    background-image: image-set(
+      url("../assets/hero-rays-1080.webp") type("image/webp"),
+      url("../assets/hero-rays-1080-optimized.jpg") type("image/jpeg")
+    ) !important;
+  }
+  .site-footer .section-rays {
+    background: url("../assets/hero-rays-1080-optimized.jpg") center 40% / 100% 160% no-repeat !important;
+    background-image: -webkit-image-set(
+      url("../assets/hero-rays-1080.webp") type("image/webp"),
+      url("../assets/hero-rays-1080-optimized.jpg") type("image/jpeg")
+    ) !important;
+    background-image: image-set(
+      url("../assets/hero-rays-1080.webp") type("image/webp"),
+      url("../assets/hero-rays-1080-optimized.jpg") type("image/jpeg")
+    ) !important;
+  }
   .section-rays,
   .atm-midn .section-rays,
   .atm-blue .section-rays,
