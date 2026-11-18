@@ -1258,8 +1258,8 @@ button, input { font: inherit; color: inherit; }
   text-align: left;
 }
 .fee-contact li {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
   align-items: center;
   column-gap: 0.75rem;
   row-gap: 0.15rem;
@@ -1267,17 +1267,11 @@ button, input { font: inherit; color: inherit; }
   word-break: normal;
 }
 .fee-contact-label {
-  flex: 0 0 8.5rem;
   color: var(--cream);
   font-weight: 500;
 }
 .fee-contact a.social-inline {
   text-decoration: none;
-}
-@media (max-width: 719px) {
-  .fee-contact-label {
-    flex-basis: 8.5rem;
-  }
 }
 
 
