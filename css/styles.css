@@ -188,20 +188,15 @@ button, input { font: inherit; color: inherit; }
   color: var(--cream);
 }
 .logo-mark {
-  width: 0.85rem;
-  height: 0.85rem;
-  border-radius: 0.22rem;
-  background:
-    linear-gradient(180deg, var(--cream) 0%, var(--cream) 100%);
-  box-shadow: 0 0 0 3px rgba(244, 241, 234, 0.08);
-  position: relative;
+  width: 1.625rem;
+  height: 1.625rem;
+  border-radius: 0.28rem;
+  overflow: hidden;
+  background: url("../assets/favicon.svg") center / contain no-repeat;
+  flex-shrink: 0;
 }
 .logo-mark::after {
-  content: "";
-  position: absolute;
-  inset: 3px;
-  border-radius: 0.1rem;
-  background: #02070A;
+  content: none;
 }
 .logo-text {
   font-family: var(--font-sans);
