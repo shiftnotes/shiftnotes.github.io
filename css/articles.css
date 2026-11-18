@@ -337,3 +337,23 @@
   .article-hero .hero-sub,
   .article-hero .article-lead { max-width: calc(100% - 0.5rem); }
 }
+
+/* v10：每段文字整塊收窄置中（左右留白相等），行內靠左 */
+.article-prose > p,
+.article-prose > ul,
+.article-prose > ol,
+.article-page .section > .wrap > p {
+  width: fit-content;
+  max-width: min(40rem, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+.article-page .contact-grid .contact-card > p,
+.article-byline p {
+  width: fit-content;
+  max-width: min(36rem, 100%);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+  text-align-last: left;
+}

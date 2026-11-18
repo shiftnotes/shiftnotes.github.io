@@ -2876,3 +2876,58 @@ main > .section,
   line-height: 1.55;
   color: var(--ink-mute);
 }
+
+/* 置中向左對齊：每段文字整塊收窄後放在中間（左右留白相等），行內靠左；多行段落兩端對齊讓右側不參差 */
+.hero-sub,
+.hero-proof,
+.lede,
+.section-head .lede,
+.lede-inline,
+.fine-print,
+.guarantee-lead,
+.guarantee-body {
+  width: fit-content;
+  max-width: min(36rem, 100%);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+.hero-sub { max-width: min(36em, 100%); }
+.lede,
+.lede-inline,
+.fine-print,
+.guarantee-body,
+.sell-item p,
+.trio-item p,
+.split p,
+.contact-card p,
+.faq-list .faq-a,
+.faq-list .faq-a p,
+.steps li p {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-character;
+  text-wrap: wrap;
+}
+main .hero-sub,
+main .lede,
+main .section-head .lede,
+main .lede-inline,
+main .fine-print,
+main .note-format > p,
+main .guarantee-body {
+  width: fit-content;
+  max-width: min(36rem, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+main .note-format > p { max-width: min(40rem, 100%); }
+main .lede,
+main .section-head .lede,
+main .lede-inline,
+main .note-format > p,
+main .guarantee-body {
+  text-align: justify;
+  text-align-last: left;
+}
+main .faq-list { max-width: 46rem; margin-left: auto; margin-right: auto; }
