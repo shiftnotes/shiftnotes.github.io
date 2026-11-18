@@ -237,3 +237,17 @@
 .article-page .hero-actions { justify-content: flex-start; }
 .article-page .rule { margin-left: 0; }
 .article-hero { padding-left: 0; padding-right: 0; }
+
+/* v5：作者與更新日期移到頁面最下方，低調呈現 */
+.article-byline { margin: 0 14px 14px; padding: 0.4rem 0 1.2rem; }
+.article-byline p {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-mute);
+  text-align: left;
+}
+@media (max-width: 719px) { .article-byline p { font-size: 0.74rem; letter-spacing: 0.02em; } }
+
+/* v6：「閱讀全文」靠右放在卡片底部 */
+.article-page .card-more { align-self: flex-end; text-align: right; }
