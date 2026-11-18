@@ -251,3 +251,5 @@
 
 /* v6：「閱讀全文」靠右放在卡片底部 */
 .article-page .card-more { align-self: flex-end; text-align: right; }
+.article-meta-grid { grid-template-columns: 1fr !important; max-width: 52rem; }
+.article-meta-grid .contact-card p + p { margin-top: 0.75rem; }
