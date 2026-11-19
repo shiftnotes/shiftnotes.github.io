@@ -155,7 +155,7 @@
 .sources { margin: 0.5rem 0 1rem; padding-left: 1.1rem; font-size: 0.88rem; line-height: 1.75; color: var(--ink-soft); word-break: break-all; }
 .sources li + li { margin-top: 0.35rem; }
 
-/* 七步驟地圖：卡片之間放半透明白色圓底箭頭圖示（窄螢幕向下，寬螢幕同列向右） */
+/* 七步驟地圖：圓角方塊加粗實心箭頭（窄螢幕向下如 ⬇️，寬螢幕同列向右如 ➡️） */
 .steps-seven li {
   position: relative;
   overflow: visible;
@@ -163,20 +163,20 @@
 .steps-seven li:not(:last-child)::after {
   content: "";
   position: absolute;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
   pointer-events: none;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.78) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M8 12l8 8 8-8' stroke='%2302070A' stroke-width='2.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 18px 18px no-repeat;
-  box-shadow: 0 6px 16px rgba(0, 16, 40, 0.22);
+  background: #0297DE url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23fff' d='M13 4h6v12h6L16 28 7 16h6V4z'/%3E%3C/svg%3E") center / 22px 22px no-repeat;
+  box-shadow: 0 4px 14px rgba(2, 70, 130, 0.32);
 }
 @media (min-width: 720px) and (max-width: 899px) {
   .steps.steps-seven { grid-template-columns: 1fr; }
 }
 @media (max-width: 899px) {
   .steps.steps-seven {
-    gap: 2.35rem;
+    gap: 2.5rem;
     max-width: 36rem;
     width: 100%;
     margin-left: auto;
@@ -185,14 +185,14 @@
   .steps-seven li:not(:last-child)::after {
     left: 50%;
     top: 100%;
-    margin-top: calc((2.35rem - 30px) / 2);
+    margin-top: calc((2.5rem - 34px) / 2);
     transform: translateX(-50%);
   }
 }
 @media (min-width: 900px) {
   .steps-seven {
     grid-template-columns: repeat(4, 1fr);
-    gap: 2.35rem 2.5rem;
+    gap: 2.5rem 2.6rem;
     overflow: visible;
   }
   .steps-seven li:not(:last-child)::after {
