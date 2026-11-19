@@ -2934,7 +2934,7 @@ main > .section,
   color: var(--ink-mute);
 }
 
-/* 置中向左對齊：每段文字整塊收窄後放在中間（左右留白相等），行內靠左；多行段落兩端對齊讓右側不參差 */
+/* 置中向左對齊：每段文字整塊收窄後放在中間（左右留白相等），行內靠左、字距維持正常 */
 .hero-sub,
 .hero-proof,
 .lede,
@@ -2961,9 +2961,7 @@ main > .section,
 .faq-list .faq-a,
 .faq-list .faq-a p,
 .steps li p {
-  text-align: justify;
-  text-align-last: left;
-  text-justify: inter-character;
+  text-align: left;
   text-wrap: wrap;
 }
 main .hero-sub,
@@ -2984,7 +2982,6 @@ main .section-head .lede,
 main .lede-inline,
 main .note-format > p,
 main .guarantee-body {
-  text-align: justify;
-  text-align-last: left;
+  text-align: left;
 }
 main .faq-list { max-width: 46rem; margin-left: auto; margin-right: auto; }
