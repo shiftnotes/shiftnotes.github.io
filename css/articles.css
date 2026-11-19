@@ -190,8 +190,9 @@
 }
 @media (min-width: 900px) {
   .steps-seven {
+    --step-col-gap: 60px;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2.35rem 2.5rem;
+    gap: 2.35rem var(--step-col-gap);
     overflow: visible;
   }
   .steps-seven li:not(:last-child)::after {
@@ -199,7 +200,7 @@
   }
   .steps-seven li:not(:nth-child(4n)):not(:last-child)::after {
     content: "";
-    left: 100%;
+    left: calc(100% + (var(--step-col-gap) / 2));
     top: 50%;
     right: auto;
     margin-top: 0;
