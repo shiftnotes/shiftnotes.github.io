@@ -63,14 +63,32 @@
 .article-prose li + li { margin-top: 0.45rem; }
 .article-prose li::marker { color: #FFB59E; }
 .article-prose strong { color: #fff; font-weight: 700; }
-.article-prose a,
-.overview-card a,
-.faq-a a,
+.article-prose a:not(.btn),
+.overview-card a:not(.btn),
+.faq-a a:not(.btn),
 .contact-card a:not(.btn) {
   color: #fff;
   text-decoration: underline;
   text-decoration-color: rgba(252, 115, 77, 0.8);
   text-underline-offset: 0.22em;
+}
+.article-prose a.btn,
+.overview-card a.btn,
+.faq-a a.btn,
+.article-page a.btn-ink,
+a.btn-ink {
+  text-decoration: none;
+}
+.article-prose a.btn-ink,
+.article-page a.btn-ink,
+a.btn-ink:hover,
+a.btn-ink:focus,
+a.btn-ink:focus-visible,
+.article-prose a.btn-ink:hover,
+.article-prose a.btn-ink:focus,
+.article-prose a.btn-ink:focus-visible {
+  color: #fff;
+  text-decoration: none;
 }
 
 /* 表格：首頁收費表的毛玻璃面板，手機可左右滑 */
