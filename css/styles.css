@@ -363,19 +363,27 @@ button, input { font: inherit; color: inherit; }
   color: #fff;
 }
 .btn-ink {
-  background: #02070A;
-  color: #fff;
-  border-color: #02070A;
+  background: #fff;
+  color: #02070A;
+  border-color: #fff;
   text-decoration: none;
 }
 .btn-ink:hover,
-.btn-ink:focus,
-.btn-ink:focus-visible {
-  background: #161616;
-  color: #fff;
-  border-color: #161616;
+.btn-ink:focus {
+  background: #fff;
+  color: #02070A;
+  border-color: #fff;
   text-decoration: none;
   transform: translateY(-1px);
+}
+.btn-ink:focus-visible {
+  background: #fff;
+  color: #02070A;
+  border-color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+  outline: none;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #02070A;
 }
 .btn-sm {
   padding: 0.52em 1em;
