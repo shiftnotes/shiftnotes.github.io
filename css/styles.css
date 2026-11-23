@@ -3010,3 +3010,88 @@ main .guarantee-body {
   text-align: left;
 }
 main .faq-list { max-width: 46rem; margin-left: auto; margin-right: auto; }
+
+/* discount: partner code box in #plans */
+.discount-box {
+  width: 100%;
+  max-width: 22.5rem;
+  margin: -0.35rem auto 0;
+  text-align: left;
+}
+.discount-box + .plan-grid {
+  margin-top: 1.6rem;
+}
+.discount-label {
+  display: block;
+  margin: 0 0 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.82);
+}
+.discount-row {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+.discount-row input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.68em 1em;
+  border-radius: var(--pill);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  backdrop-filter: saturate(1.2) blur(16px);
+  -webkit-backdrop-filter: saturate(1.2) blur(16px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+.discount-row input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+.discount-row input:focus,
+.discount-row input:focus-visible {
+  outline: none;
+  border-color: rgba(2, 151, 222, 0.85);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 2px rgba(2, 151, 222, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.32);
+}
+.discount-row .btn {
+  flex: 0 0 auto;
+}
+.discount-msg {
+  margin: 0.5rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.82);
+}
+.discount-msg.is-error {
+  color: #FC734D;
+}
+.plan-price-was {
+  display: none;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+  text-shadow: none;
+}
+.plan.is-discounted .plan-price-was {
+  display: block;
+  margin: 0 0 0.3rem;
+}
+.plan-discount-note {
+  margin: 0.3rem 0 0.15rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #FC734D;
+}
+.plan-price-row .plan-discount-note {
+  margin: 0.35rem 0 0;
+}
