@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#02070A"/>
+  <g transform="translate(32 32) scale(0.84) translate(-32 -32)">
+    <path d="M 9.00,7.50 L 32.00,18.50 L 55.00,7.50 L 55.00,46.50 L 32.00,56.80 L 9.00,46.50 Z"
+          fill="none" stroke="#F4F1EA" stroke-width="6.4"
+          stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M 32.00,18.50 L 32.00,56.80"
+          fill="none" stroke="#0297DE" stroke-width="6.4"
+          stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+</svg>
